@@ -15,3 +15,5 @@ Usamos el vue-cli de siempre.
 ### Splashscreen
 
 Vue tiene un componente llamado 'suspense' que se usa cuando estamos cargando información en nuestro proyecto. Es como un recuadro gris donde vemos que estará la información.
+
+### Header y su contenido

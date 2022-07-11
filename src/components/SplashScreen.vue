@@ -9,7 +9,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .splashscreen {
   align-items: center;
   display: flex;
