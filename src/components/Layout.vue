@@ -2,10 +2,23 @@
   <div class="header">
     <slot name="header"></slot>
   </div>
+  <div class="resume">
+    <slot name="resume"></slot>
+  </div>
+  <div class="movements">
+    <div class="head" @click="showMovements = !showMovements">
+      <div class="grip"></div>
+    </div>
+    <div class="body" v-show="showMovements">
+      <slot name="movements"></slot>
+    </div>
+  </div>
 </template>
 
-<script>
-export default {};
+<script setup>
+import { ref } from "vue";
+//! VSC marca que no 'showMovements' pero realmente sí es usada
+const showMovements = ref(false);
 </script>
 
 <style scoped>
