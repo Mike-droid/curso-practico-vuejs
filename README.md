@@ -19,3 +19,7 @@ Vue tiene un componente llamado 'suspense' que se usa cuando estamos cargando in
 ### Header y su contenido
 
 ### Layout
+
+## Vista
+
+### Resumen de datos
