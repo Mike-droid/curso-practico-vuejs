@@ -23,3 +23,20 @@ Vue tiene un componente llamado 'suspense' que se usa cuando estamos cargando in
 ## Vista
 
 ### Resumen de datos
+
+### Agregando formato a la moneda
+
+Podemos darle formato de moneda a los números con JS vanilla:
+
+```javascript
+const currencyFormatter = new Intl.NumberFormat("es-MX", {
+  style: "currency",
+  currency: "MXN",
+});
+
+amountCurrency() {
+  return currencyFormatter.format(this.amountVisual);
+}
+```
+
+[Documentación para Intl.NumberFormat](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)

@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <template #header>
-      <Header></Header>
+      <Header />
     </template>
     <template #resume>
       <Resume
@@ -9,7 +9,10 @@
         :totalAmount="50000"
         :amount="amount"
         :dateLabel="dateLabel"
-      />
+      >
+        <template #graphic> graphic </template>
+        <template #action> action </template>
+      </Resume>
     </template>
     <template #movements>
       <Movements />
