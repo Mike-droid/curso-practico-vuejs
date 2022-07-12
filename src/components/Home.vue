@@ -15,7 +15,7 @@
       </Resume>
     </template>
     <template #movements>
-      <Movements />
+      <Movements :movements="movements" />
     </template>
   </Layout>
 </template>
@@ -23,7 +23,7 @@
 <script>
 import Header from "./Header.vue";
 import Layout from "./Layout.vue";
-import Movements from "./Movements.vue";
+import Movements from "./Movements/Index.vue";
 import Resume from "./Resume/Index.vue";
 
 export default {
@@ -38,6 +38,32 @@ export default {
     return {
       amount: null,
       dateLabel: "22/10/2022",
+      movements: [
+        {
+          id: 1,
+          title: "movement 1",
+          description: "movement 1",
+          amount: 100,
+        },
+        {
+          id: 2,
+          title: "movement 2",
+          description: "movement 2",
+          amount: 200,
+        },
+        {
+          id: 3,
+          title: "movement 3",
+          description: "movement 3",
+          amount: 300,
+        },
+        {
+          id: 4,
+          title: "movement 4",
+          description: "movement 4",
+          amount: 400,
+        },
+      ],
     };
   },
 };

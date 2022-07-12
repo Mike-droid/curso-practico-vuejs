@@ -40,3 +40,5 @@ amountCurrency() {
 ```
 
 [Documentación para Intl.NumberFormat](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
+
+### Componente del historial
