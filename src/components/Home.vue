@@ -63,6 +63,12 @@ export default {
           description: "movement 4",
           amount: 400,
         },
+        {
+          id: 5,
+          title: "movement 5",
+          description: "movement 5",
+          amount: -400,
+        },
       ],
     };
   },
