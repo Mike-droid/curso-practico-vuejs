@@ -11,45 +11,46 @@
   </main>
 </template>
 
-<script>
+<script setup>
+import { toRefs, defineProps, computed } from "vue";
+
 const currencyFormatter = new Intl.NumberFormat("es-MX", {
   style: "currency",
   currency: "MXN",
 });
 
-export default {
-  props: {
-    label: {
-      type: String,
-      required: true,
-    },
-    dateLabel: {
-      type: String,
-      default: null,
-    },
-    totalAmount: {
-      type: Number,
-      required: true,
-    },
-    amount: {
-      type: Number,
-      default: null,
-    },
+const props = defineProps({
+  label: {
+    type: String,
+    required: true,
   },
-
-  computed: {
-    amountVisual() {
-      return this.amount !== null ? this.amount : this.totalAmount;
-    },
-
-    selectedDate() {
-      return this.dateLabel !== null ? this.dateLabel : this.label;
-    },
-    amountCurrency() {
-      return currencyFormatter.format(this.amountVisual);
-    },
+  dateLabel: {
+    type: String,
+    default: null,
   },
-};
+  totalAmount: {
+    type: Number,
+    required: true,
+  },
+  amount: {
+    type: Number,
+    default: null,
+  },
+});
+
+const { label, dateLabel, totalAmount, amount } = toRefs(props);
+
+const amountVisual = computed(() =>
+  amount.value !== null ? amount.value : totalAmount.value
+);
+
+const selectedDate = computed(() =>
+  dateLabel.value !== null ? dateLabel.value : label.value
+);
+
+const amountCurrency = computed(() =>
+  currencyFormatter.format(amountVisual.value)
+);
 </script>
 
 <style scoped>
