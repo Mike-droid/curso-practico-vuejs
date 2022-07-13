@@ -44,3 +44,5 @@ amountCurrency() {
 ### Componente del historial
 
 ### Lista del historial
+
+### El botón para agregar
