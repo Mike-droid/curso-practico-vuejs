@@ -101,3 +101,5 @@ p {
 - [polyline Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/polyline)
 
 ### Creación de las coordenadas en el gráfico
+
+### Creación de la lógica del gráfico
