@@ -10,7 +10,9 @@
         :amount="amount"
         :dateLabel="dateLabel"
       >
-        <template #graphic> graphic </template>
+        <template #graphic>
+          <Graphic />
+        </template>
         <template #action>
           <Action />
         </template>
@@ -28,6 +30,7 @@ import Layout from "./Layout.vue";
 import Movements from "./Movements/Index.vue";
 import Resume from "./Resume/Index.vue";
 import Action from "./Action.vue";
+import Graphic from "./Resume/Graphic.vue";
 
 export default {
   components: {
@@ -36,6 +39,7 @@ export default {
     Movements,
     Resume,
     Action,
+    Graphic,
   },
 
   data() {
