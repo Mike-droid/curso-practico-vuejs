@@ -11,7 +11,7 @@
         :dateLabel="dateLabel"
       >
         <template #graphic>
-          <Graphic />
+          <Graphic :amounts="amounts" />
         </template>
         <template #action>
           <Action />
@@ -46,6 +46,7 @@ export default {
     return {
       amount: null,
       dateLabel: "22/10/2022",
+      amounts: [100, 200, 500, 200, -400, -200, 300, 0, -500],
       movements: [
         {
           id: 1,
