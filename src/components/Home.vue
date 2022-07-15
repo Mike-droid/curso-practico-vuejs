@@ -11,7 +11,7 @@
         :dateLabel="dateLabel"
       >
         <template #graphic>
-          <Graphic :amounts="amounts" />
+          <Graphic :amounts="amounts" @select="select" />
         </template>
         <template #action>
           <Action @create="create" />
@@ -62,7 +62,7 @@ export default {
         .map((m) => m.amount);
 
       return lastDays.map((m, index) => {
-        const lastMovements = lastDays.slice(0, index);
+        const lastMovements = lastDays.slice(0, index + 1);
 
         return lastMovements.reduce((suma, movement) => {
           return suma + movement;
@@ -101,6 +101,10 @@ export default {
 
     save() {
       localStorage.setItem("movements", JSON.stringify(this.movements));
+    },
+
+    select(element) {
+      this.amount = element;
     },
   },
 };
