@@ -105,3 +105,7 @@ p {
 ### Creación de la lógica del gráfico
 
 ### Creando la interacción con el gráfico
+
+## Modelo
+
+### Modelo de datos

@@ -41,45 +41,68 @@ export default {
     Action,
     Graphic,
   },
-
   data() {
     return {
       amount: null,
       dateLabel: "22/10/2022",
-      amounts: [100, 200, 500, 200, -400, -200, 300, 0, -500],
       movements: [
         {
           id: 1,
           title: "movement 1",
           description: "movement 1",
           amount: 100,
+          time: new Date("07-01-2022"),
         },
         {
           id: 2,
           title: "movement 2",
           description: "movement 2",
           amount: 200,
+          time: new Date("07-02-2022"),
         },
         {
           id: 3,
           title: "movement 3",
           description: "movement 3",
           amount: 300,
+          time: new Date("07-03-2022"),
         },
         {
           id: 4,
           title: "movement 4",
           description: "movement 4",
           amount: 400,
+          time: new Date("07-04-2022"),
         },
         {
           id: 5,
           title: "movement 5",
           description: "movement 5",
           amount: -400,
+          time: new Date("07-05-2022"),
         },
       ],
     };
+  },
+  computed: {
+    amounts() {
+      const lastDays = this.movements
+        .filter((m) => {
+          const today = new Date();
+          const oldDate = today.setDate(today.getDate() - 30);
+
+          return m.time > oldDate;
+        })
+        .map((m) => m.amount);
+
+      return lastDays.map((m, index) => {
+        const lastMovements = lastDays.slice(0, index);
+
+        return lastMovements.reduce((suma, movement) => {
+          return suma + movement;
+        }, 0);
+      });
+    },
   },
 };
 </script>
