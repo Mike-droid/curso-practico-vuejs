@@ -109,3 +109,5 @@ p {
 ## Modelo
 
 ### Modelo de datos
+
+### Agregar y quitar
