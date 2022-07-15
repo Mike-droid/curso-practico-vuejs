@@ -113,3 +113,5 @@ p {
 ### Agregar y quitar
 
 ### Persistencia del modelo
+
+### Últimos detalles de nuestra aplicación
