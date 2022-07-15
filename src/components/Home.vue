@@ -6,7 +6,7 @@
     <template #resume>
       <Resume
         :label="'Ahorro total'"
-        :totalAmount="50000"
+        :totalAmount="totalAmount"
         :amount="amount"
         :dateLabel="dateLabel"
       >
@@ -41,49 +41,15 @@ export default {
     Action,
     Graphic,
   },
+
   data() {
     return {
       amount: null,
       dateLabel: "22/10/2022",
-      movements: [
-        {
-          id: 1,
-          title: "movement 1",
-          description: "movement 1",
-          amount: 100,
-          time: new Date("07-01-2022"),
-        },
-        {
-          id: 2,
-          title: "movement 2",
-          description: "movement 2",
-          amount: 200,
-          time: new Date("07-02-2022"),
-        },
-        {
-          id: 3,
-          title: "movement 3",
-          description: "movement 3",
-          amount: 300,
-          time: new Date("07-03-2022"),
-        },
-        {
-          id: 4,
-          title: "movement 4",
-          description: "movement 4",
-          amount: 400,
-          time: new Date("07-04-2022"),
-        },
-        {
-          id: 5,
-          title: "movement 5",
-          description: "movement 5",
-          amount: -400,
-          time: new Date("07-05-2022"),
-        },
-      ],
+      movements: [],
     };
   },
+
   computed: {
     amounts() {
       const lastDays = this.movements
@@ -103,14 +69,38 @@ export default {
         }, 0);
       });
     },
+
+    totalAmount() {
+      return this.movements.reduce((suma, m) => {
+        return suma + m.amount;
+      }, 0);
+    },
   },
+
+  mounted() {
+    const movements = JSON.parse(localStorage.getItem("movements"));
+
+    if (Array.isArray(movements)) {
+      this.movements = movements?.map((m) => {
+        return { ...m, time: new Date(m.time) };
+      });
+    }
+  },
+
   methods: {
     create(movement) {
       this.movements.push(movement);
+      this.save();
     },
+
     remove(id) {
       const index = this.movements.findIndex((m) => m.id === id);
       this.movements.splice(index, 1);
+      this.save();
+    },
+
+    save() {
+      localStorage.setItem("movements", JSON.stringify(this.movements));
     },
   },
 };
