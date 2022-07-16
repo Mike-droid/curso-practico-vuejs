@@ -115,3 +115,10 @@ p {
 ### Persistencia del modelo
 
 ### Últimos detalles de nuestra aplicación
+
+## Cierre
+
+### App en producción
+
+[URL del proyecto en Netlify](https://62d22d645eb1c42ff4240219--sparkly-beignet-634949.netlify.app/)
+
